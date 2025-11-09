@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ml-from-first"
+version = "0.1.0"
+description = "Machine learning algorithms from first principles"
+requires-python = ">=3.8"
+dependencies = [
+    "numpy",
+]
+
+[tool.setuptools]
+packages = ["src", "src.core", "src.linear", "src.neighbors", "src.neural-nets", "src.pipelines", "src.trees", "src.bayes"]
+
+[tool.setuptools.package-dir]
+"" = "."

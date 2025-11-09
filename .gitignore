@@ -1,0 +1,16 @@
+src/__pycache__/
+src/__init__.pyc
+src/__init__.py
+src/linear/__pycache__/
+src/linear/__init__.pyc
+src/linear/__init__.py
+src/linear/linear_regression.pyc
+src/linear/linear_regression.py
+src/linear/logistic_regression.pyc
+src/linear/logistic_regression.py
+src/linear/ridge_regression.pyc
+src/linear/ridge_regression.py
+src/core/__pycache__/
+src/core/__init__.pyc
+src/core/__init__.py
+ml_from_first.egg-info/
