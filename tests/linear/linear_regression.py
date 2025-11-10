@@ -35,7 +35,7 @@ def test_linear_regression():
 
     # calculate the MSE
     mse = np.mean((y_test - y_pred) ** 2)
-    print(f"MSE: {mse}")
+    print(f"Test loss: {mse}")
 
     return 0
 

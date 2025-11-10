@@ -11,8 +11,10 @@ class LinearRegression(Regressor):
         n_samples, n_features = X.shape
         self.weights = np.zeros(n_features)
 
-        w = np.linalg.inv(X.T @ X) @ X.T @ y
+        w = np.linalg.pinv(X.T @ X) @ X.T @ y
         self.weights = w
+        loss = np.mean((y - X @ w) ** 2)
+        print(f"Training loss: {loss}")
         return self
 
     def predict(self, X):
