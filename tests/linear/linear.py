@@ -42,8 +42,17 @@ def test_linear_regression():
 
 def test_logistic_regression():
     n, d = 300, 10
+
+    # skewed distribution, but perfect for hinge or logistic regression
+    # X1 = np.random.normal(loc=1, scale=1, size = (250, d))
+    # X2 = np.random.normal(loc=100, scale=0.1, size =(50, d))
+    # X = np.concatenate([X1, X2])
+    # np.random.shuffle(X)
+    # w = np.random.uniform(low=-0.05, high=0.95, size = d)
+
     X = np.random.normal(size = (n, d))
     w = np.random.normal(size = d)
+
     y = np.sign(X @ w)
 
     X_train, X_valid, X_test, y_train, y_valid, y_test = train_valid_test_split(X, y)
@@ -53,7 +62,6 @@ def test_logistic_regression():
     model.fit(X_train, y_train)
 
     # we now predict
-    y_pred = model.predict(X_test)
     accuracy, precision, recall = model.evaluate(X_test, y_test)
     print(f"Test precision: {precision}")
     print(f"Test recall: {recall}")
