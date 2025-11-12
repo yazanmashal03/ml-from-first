@@ -2,7 +2,6 @@
 import numpy as np
 from src.core.base import Regressor
 
-
 class LinearRegression(Regressor):
     def __init__(self):
         self.weights = None
@@ -89,7 +88,7 @@ class LinearRegression(Regressor):
         best_mse = float('inf')
         for l in lambda_range:
             # Fit on training set
-            w = np.linalg.pinv(X_train.T @ X_train + l * np.eye(X_train.shape[1])) @ X_train.T @ y_train
+            w = np.linalg.inv(X_train.T @ X_train + l * np.eye(X_train.shape[1])) @ X_train.T @ y_train
             # Evaluate on validation set
             mse = np.mean((y_valid - X_valid @ w) ** 2)
             if mse < best_mse:

@@ -1,11 +1,12 @@
 import numpy as np
 from src.linear.linear_regression import LinearRegression
 from src.core.utils import train_valid_test_split
+from src.linear.logistic_regression import LogisticRegression
 
 def test_linear_regression():
     # shape
-    m = 30
-    n = 100
+    m = 300
+    n = 10
 
     # feature matrix, Xij ~ Unif([0, 1]), X.shape = (300, 20)
     X = np.random.uniform(size = (m, n))
@@ -39,9 +40,30 @@ def test_linear_regression():
 
     return 0
 
+def test_logistic_regression():
+    n, d = 300, 10
+    X = np.random.normal(size = (n, d))
+    w = np.random.normal(size = d)
+    y = np.sign(X @ w)
+
+    X_train, X_valid, X_test, y_train, y_valid, y_test = train_valid_test_split(X, y)
+    model = LogisticRegression()
+    model.find_opt_lamb(X_train, X_valid, y_train, y_valid)
+    print(f"Optimal lambda: {model.lamb}")
+    model.fit(X_train, y_train)
+
+    # we now predict
+    y_pred = model.predict(X_test)
+    accuracy, precision, recall = model.evaluate(X_test, y_test)
+    print(f"Test precision: {precision}")
+    print(f"Test recall: {recall}")
+    print(f"Test accuracy: {accuracy}")
+    return 0
+
 def main():
     np.random.seed(42)
-    test_linear_regression()
+    # test_linear_regression()
+    test_logistic_regression()
 
 if __name__ == "__main__":
     main()
