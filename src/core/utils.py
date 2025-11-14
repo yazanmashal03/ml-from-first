@@ -1,5 +1,6 @@
 # we make a function that takes a matrix X and based on the given 
 # percentage, returns a train, valid, and test split.
+import numpy as np
 
 def train_valid_test_split(X, y, train_size=0.6, valid_size=0.3, test_size=0.1):
     # check if the sum of the sizes is 1
@@ -12,3 +13,6 @@ def train_valid_test_split(X, y, train_size=0.6, valid_size=0.3, test_size=0.1):
     test_size = int(test_size * n)
 
     return X[:train_size], X[train_size:train_size+valid_size], X[train_size+valid_size:], y[:train_size], y[train_size:train_size+valid_size], y[train_size+valid_size:]
+
+def sigmoid(z):
+    return 1.0 / (1.0 + np.exp(-z))
