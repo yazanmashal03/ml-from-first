@@ -14,3 +14,4 @@ src/core/__pycache__/
 src/core/__init__.pyc
 src/core/__init__.py
 ml_from_first.egg-info/
+src/bayes/__pycache__
