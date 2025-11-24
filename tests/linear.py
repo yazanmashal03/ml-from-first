@@ -63,7 +63,7 @@ def test_linear_bayes(X, y):
 
     # fit the model
     prior_mean = np.zeros(1)
-    prior_cov = np.eye(1) * 10
+    prior_cov = np.eye(1) * 1
     model = BayesianRegression(prior_mean, prior_cov, 1)
     model.fit(X_train, y_train)
 
